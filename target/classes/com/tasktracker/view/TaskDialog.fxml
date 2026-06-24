@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.tasktracker.controller.TaskDialogController"
+      spacing="10"
+      styleClass="dialog-root">
+
+    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+    <Label text="Название" styleClass="field-label"/>
+    <TextField fx:id="titleField" promptText="Краткое название задачи" styleClass="text-field-styled"/>
+
+    <Label text="Описание" styleClass="field-label"/>
+    <TextArea fx:id="descArea" promptText="Подробности..." prefRowCount="3"
+              styleClass="text-area-styled" wrapText="true"/>
+
+    <HBox spacing="16">
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Приоритет" styleClass="field-label"/>
+            <ComboBox fx:id="priorityCombo" maxWidth="Infinity"/>
+        </VBox>
+        <VBox spacing="4" HBox.hgrow="ALWAYS">
+            <Label text="Статус" styleClass="field-label"/>
+            <ComboBox fx:id="statusCombo" maxWidth="Infinity"/>
+        </VBox>
+    </HBox>
+
+    <Label text="Исполнитель" styleClass="field-label"/>
+    <TextField fx:id="assigneeField" promptText="Иванов Иван" styleClass="text-field-styled"/>
+
+    <Label fx:id="errorLabel" text="" styleClass="error-label" wrapText="true"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 6 0 0 0;">
+        <Button text="Отмена" onAction="#handleCancel" styleClass="btn-secondary"/>
+        <Button fx:id="saveBtn" text="Сохранить" onAction="#handleSave" styleClass="btn-primary"/>
+    </HBox>
+</VBox>

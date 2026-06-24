@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tasktracker.controller.MainController"
+            styleClass="main-root">
+
+    <!-- ══ TOP BAR ══ -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="top-bar">
+            <padding><Insets top="12" right="16" bottom="12" left="16"/></padding>
+
+            <Label text="📋 TaskTracker" styleClass="top-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label text="Фильтр:" styleClass="filter-label"/>
+            <ComboBox fx:id="filterCombo" prefWidth="130"/>
+
+            <Button text="↻ Обновить" onAction="#handleRefresh" styleClass="btn-secondary"/>
+            <Button text="+ Новая задача" onAction="#handleNewTask" styleClass="btn-primary"/>
+            <Button text="Выйти" onAction="#handleLogout" styleClass="btn-danger-outline"/>
+        </HBox>
+    </top>
+
+    <!-- ══ TABLE ══ -->
+    <center>
+        <VBox>
+            <padding><Insets top="0" right="16" bottom="0" left="16"/></padding>
+            <TableView fx:id="taskTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"       text="#"/>
+                    <TableColumn fx:id="colTitle"    text="Задача"/>
+                    <TableColumn fx:id="colAssignee" text="Исполнитель"/>
+                    <TableColumn fx:id="colPriority" text="Приоритет"/>
+                    <TableColumn fx:id="colStatus"   text="Статус"/>
+                    <TableColumn fx:id="colActions"  text="Действия"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- ══ STATUS BAR ══ -->
+    <bottom>
+        <HBox styleClass="status-bar">
+            <padding><Insets top="6" right="16" bottom="6" left="16"/></padding>
+            <Label fx:id="statusBar" text="Загрузка..." styleClass="status-text"/>
+        </HBox>
+    </bottom>
+</BorderPane>

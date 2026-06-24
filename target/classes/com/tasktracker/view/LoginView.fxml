@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.tasktracker.controller.LoginController"
+      alignment="CENTER"
+      spacing="12"
+      styleClass="login-root">
+
+    <padding><Insets top="36" right="50" bottom="36" left="50"/></padding>
+
+    <Label text="📋 TaskTracker" styleClass="app-title"/>
+    <Label fx:id="subtitleLabel" text="Трекер задач для команды" styleClass="app-subtitle"/>
+
+    <VBox spacing="8" style="-fx-padding: 14 0 4 0;">
+        <Label text="Email" styleClass="field-label"/>
+        <TextField fx:id="emailField" promptText="user@example.com" styleClass="text-field-styled"/>
+
+        <Label text="Пароль" styleClass="field-label"/>
+        <PasswordField fx:id="passwordField" promptText="••••••" styleClass="text-field-styled"/>
+
+        <!-- Видно только при регистрации -->
+        <Label fx:id="confirmLabel" text="Повторите пароль" styleClass="field-label" managed="false" visible="false"/>
+        <PasswordField fx:id="passwordConfirmField" promptText="••••••" styleClass="text-field-styled" managed="false" visible="false"/>
+    </VBox>
+
+    <Label fx:id="errorLabel" text="" wrapText="true" maxWidth="300" styleClass="error-label"/>
+
+    <Button fx:id="mainBtn" text="Войти" onAction="#handleMain"
+            styleClass="btn-primary" maxWidth="Infinity"/>
+
+    <Button fx:id="switchBtn" text="Нет аккаунта? Зарегистрироваться" onAction="#handleSwitch"
+            styleClass="btn-link" maxWidth="Infinity"/>
+</VBox>
